@@ -1,5 +1,5 @@
 # Zendesk Test (Suas Architecture)
-> Zendesk project using Suas architecture
+> Zendesk Test project using [Suas](https://github.com/zendesk/Suas-iOS) architecture 
 
 [![Swift Version][swift-image]][swift-url]
 [![Build Status][travis-image]][travis-url]
@@ -22,9 +22,10 @@ run pod install
 ```
 🚀🚀🚀🚀🚀🚀🚀
 
-## Meta
+## The developer
 
 Elton Mendes – [LinkedIn](https://www.linkedin.com/in/eltonjunior/) – eltonmendes.j@gmail.com
+iOS developer
 
 Distributed under the XYZ license. See ``LICENSE`` for more information.
 
