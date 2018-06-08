@@ -183,7 +183,6 @@
 		2BEA64B520CA0FE900D57DF6 /* ZendeskApp */ = {
 			isa = PBXGroup;
 			children = (
-				2BC935BB20CB133D00E3256B /* CustomView */,
 				2BEA64B620CA0FE900D57DF6 /* AppDelegate.swift */,
 				2BEA64C220CA0FE900D57DF6 /* Info.plist */,
 				2BEA64E420CA10F400D57DF6 /* Action */,
@@ -235,6 +234,7 @@
 		2BEA64EE20CA137D00D57DF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2BC935BB20CB133D00E3256B /* CustomView */,
 				2BC935B220CA34E500E3256B /* Tickets */,
 			);
 			path = View;
