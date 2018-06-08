@@ -8,11 +8,16 @@
 
 import UIKit
 
+struct ZendeskAlertConstants {
+    static let errorTitle = "Error"
+    static let actionTitle = "Ok"
+}
+
 struct ZendeskAlert {
     
     func showAlert(viewController : UIViewController , error : Error) {
-        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let alertController = UIAlertController(title: ZendeskAlertConstants.errorTitle, message: error.localizedDescription, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: ZendeskAlertConstants.actionTitle, style: .cancel, handler: nil)
         alertController.addAction(dismissAction)
         viewController.present(alertController, animated: true, completion: nil)
     }
