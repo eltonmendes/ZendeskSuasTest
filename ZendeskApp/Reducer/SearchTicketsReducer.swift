@@ -9,14 +9,14 @@
 import Suas
 
 struct SearchTicketsReducer: Reducer {
-    var initialState = SearchTickets(tickets : Tickets())
+    var initialState = SearchTickets(tickets : Tickets() , ticketsError : nil)
     
     func reduce(state: SearchTickets, action: Action) -> SearchTickets? {
         
         if let action = action as? TicketsFetchedAction {            
-            return SearchTickets(tickets: action.tickets)
-        } else if action is TicketsFetchedErrorAction {
-            return SearchTickets(tickets: Tickets())
+            return SearchTickets(tickets: action.tickets , ticketsError : nil)
+        } else if let action = action as? TicketsFetchedErrorAction {
+            return SearchTickets(tickets: Tickets() , ticketsError : action.error)
         }
         
         return nil

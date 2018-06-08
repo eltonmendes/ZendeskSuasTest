@@ -26,9 +26,14 @@ class TicketsViewController: UIViewController , UITableViewDataSource {
         super.viewDidLoad()
         
         listenerDescription = store.addListener(forStateType: SearchTickets.self) { [weak self] state in
-            self?.dataSource = state.tickets
+            if (state.ticketsError == nil) {
+                self?.dataSource = state.tickets
+                self?.tableView.reloadData()
+            } else {
+                ZendeskAlert().showAlert(viewController: self!,
+                                         error: state.ticketsError!)
+            }
             self?.activityIndicator.stopAnimating()
-            self?.tableView.reloadData()
         }
     }
     

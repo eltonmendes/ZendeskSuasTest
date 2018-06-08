@@ -15,6 +15,7 @@
 		2BC935B820CA363A00E3256B /* TicketsFetchedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEA64E920CA128D00D57DF6 /* TicketsFetchedAction.swift */; };
 		2BC935B920CA363F00E3256B /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEA64EC20CA12AE00D57DF6 /* Tickets.swift */; };
 		2BC935BA20CA364200E3256B /* ZendeskAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC160B420CA30F100DA35EE /* ZendeskAPI.swift */; };
+		2BC935BE20CB134F00E3256B /* ZendeskAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC935BD20CB134F00E3256B /* ZendeskAlert.swift */; };
 		2BEA64B720CA0FE900D57DF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEA64B620CA0FE900D57DF6 /* AppDelegate.swift */; };
 		2BEA64B920CA0FE900D57DF6 /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEA64B820CA0FE900D57DF6 /* TicketsViewController.swift */; };
 		2BEA64BC20CA0FE900D57DF6 /* Tickets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BEA64BA20CA0FE900D57DF6 /* Tickets.storyboard */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		2BC160B420CA30F100DA35EE /* ZendeskAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZendeskAPI.swift; sourceTree = "<group>"; };
 		2BC935B320CA350600E3256B /* TicketsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsTest.swift; sourceTree = "<group>"; };
+		2BC935BD20CB134F00E3256B /* ZendeskAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZendeskAlert.swift; sourceTree = "<group>"; };
 		2BEA64B320CA0FE900D57DF6 /* ZendeskApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZendeskApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BEA64B620CA0FE900D57DF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BEA64B820CA0FE900D57DF6 /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,22 @@
 			path = Tickets;
 			sourceTree = "<group>";
 		};
+		2BC935BB20CB133D00E3256B /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				2BC935BC20CB134400E3256B /* Alert */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		2BC935BC20CB134400E3256B /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				2BC935BD20CB134F00E3256B /* ZendeskAlert.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		2BEA64AA20CA0FE900D57DF6 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +183,7 @@
 		2BEA64B520CA0FE900D57DF6 /* ZendeskApp */ = {
 			isa = PBXGroup;
 			children = (
+				2BC935BB20CB133D00E3256B /* CustomView */,
 				2BEA64B620CA0FE900D57DF6 /* AppDelegate.swift */,
 				2BEA64C220CA0FE900D57DF6 /* Info.plist */,
 				2BEA64E420CA10F400D57DF6 /* Action */,
@@ -561,6 +580,7 @@
 				2BEA64F420CA14A100D57DF6 /* SearchTicketsReducer.swift in Sources */,
 				2BEA64F120CA13C800D57DF6 /* ApplicationState.swift in Sources */,
 				2BC160B520CA30F100DA35EE /* ZendeskAPI.swift in Sources */,
+				2BC935BE20CB134F00E3256B /* ZendeskAlert.swift in Sources */,
 				2BEA64B920CA0FE900D57DF6 /* TicketsViewController.swift in Sources */,
 				2BEA64F820CA258B00D57DF6 /* TicketTableViewCell.swift in Sources */,
 				2BEA64E820CA112A00D57DF6 /* FetchTicketsAsyncAction.swift in Sources */,

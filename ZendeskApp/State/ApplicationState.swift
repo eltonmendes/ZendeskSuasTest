@@ -12,5 +12,6 @@ let store = Suas.createStore(reducer: SearchTicketsReducer(), middleware: AsyncM
 
 struct SearchTickets {
     var tickets : Tickets
+    var ticketsError : Error?
 
 }
