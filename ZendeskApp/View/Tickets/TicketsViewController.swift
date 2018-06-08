@@ -24,7 +24,7 @@ class TicketsViewController: UIViewController , UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addRefreshControl()
         listenerDescription = store.addListener(forStateType: SearchTickets.self) { [weak self] state in
             if (state.ticketsError == nil) {
                 self?.dataSource = state.tickets
@@ -34,17 +34,30 @@ class TicketsViewController: UIViewController , UITableViewDataSource {
                                          error: state.ticketsError!)
             }
             self?.activityIndicator.stopAnimating()
+            self?.tableView.refreshControl?.endRefreshing()
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-         super.viewDidAppear(animated)
-         store.dispatch(action: FetchTicketsAsyncAction(viewID: TicketsViewControllerConstants.viewID))
+        super.viewDidAppear(animated)
+        fetchTicketsFromServer()
     }
     
     deinit {
         listenerDescription?.removeListener()
     }
+    
+    func addRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(fetchTicketsFromServer), for: .valueChanged)
+        refreshControl.tintColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc func fetchTicketsFromServer() {
+        store.dispatch(action: FetchTicketsAsyncAction(viewID: TicketsViewControllerConstants.viewID))
+    }
+    
     
     //MARK: TableView DataSource
     
@@ -59,7 +72,7 @@ class TicketsViewController: UIViewController , UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TicketsViewControllerConstants.cellIdentifier, for: indexPath) as! TicketTableViewCell
         cell.setupCell(ticket: dataSource.tickets[indexPath.row])
-        cell.backgroundColor = indexPath.row % 2 == 0 ? #colorLiteral(red: 0.8614637587, green: 0.8888075087, blue: 0.9851074219, alpha: 1) : #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        cell.backgroundColor = indexPath.row % 2 == 0 ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) : #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         return cell
     }
 
