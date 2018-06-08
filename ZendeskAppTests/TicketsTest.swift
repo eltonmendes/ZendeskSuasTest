@@ -41,6 +41,16 @@ class TicketsTest: XCTestCase {
         
     }
     
+    func testTicketsErrorAsyncAction() {
+        let tickets = Tickets()
+        let error = NSError(domain: "com.zendesk", code: 1, userInfo: ["error" : "unavailable"])
+        let state = SearchTickets(tickets: tickets, ticketsError : error)
+        let reducer = SearchTicketsReducer(initialState: state)
+        let action = TicketsFetchedAction(tickets: tickets)
+        _ = reducer.reduce(state: state, action:action )
+        XCTAssert(state.ticketsError != nil)
+    }
+    
     func testFetchTicketsAPIWithSuccess() {
         
         let expectation = XCTestExpectation(description: "Fetch Tickets from server")
