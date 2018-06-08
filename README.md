@@ -17,10 +17,11 @@ A tickets search application. 🤓🤓🤓🤓
 
 ## Installation
 
+run 
 ```ruby
-run pod install
+pod install
 ```
-🚀🚀🚀🚀🚀🚀🚀
+Ready to go 🚀🚀🚀🚀🚀🚀🚀
 
 ## The developer
 
