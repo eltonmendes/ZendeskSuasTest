@@ -16,6 +16,19 @@ struct ZendeskAPIConstants {
 
 public class ZendeskAPI {
     
+    let email : String
+    let password : String
+    
+    init() {
+        self.email = ZendeskAPIConstants.email
+        self.password = ZendeskAPIConstants.password
+    }
+    
+    init(email : String , password : String) {
+        self.email = email
+        self.password = password
+    }
+    
     func performTicketsSearch(viewID: String , completionHandler: @escaping (Data?, URLResponse?, Error?) -> Swift.Void) {
         
         let url = URL(string: "https://\(ZendeskAPIConstants.subdomain)/api/v2/views/\(viewID)/tickets.json")!
@@ -27,7 +40,7 @@ public class ZendeskAPI {
     
     func sessionConfigurationWithBasicAUTH() -> URLSessionConfiguration {
         let configuration = URLSessionConfiguration.default
-        let userPasswordString = "\(ZendeskAPIConstants.email):\(ZendeskAPIConstants.password)"
+        let userPasswordString = "\(email):\(password)"
         let userPasswordData = userPasswordString.data(using: .utf8)
         let base64EncodedCredential = userPasswordData!.base64EncodedString(options: .init(rawValue: 0))
         let authString = "Basic \(base64EncodedCredential)"

@@ -15,7 +15,7 @@ struct TicketsTestConstraints {
 
 class TicketsTest: XCTestCase {
     
-    let zendeskAPI = ZendeskAPI()
+    var zendeskAPI : ZendeskAPI?
     
     func testTicketsAvailableAsyncAction() {
         
@@ -45,7 +45,8 @@ class TicketsTest: XCTestCase {
         
         let expectation = XCTestExpectation(description: "Fetch Tickets from server")
         
-        zendeskAPI.performTicketsSearch(viewID: TicketsTestConstraints.viewID) { (data, response, errorResponse) in
+        zendeskAPI = ZendeskAPI()
+        zendeskAPI?.performTicketsSearch(viewID: TicketsTestConstraints.viewID) { (data, response, errorResponse) in
             
             XCTAssert(data != nil)
             XCTAssert(errorResponse == nil)
@@ -53,6 +54,27 @@ class TicketsTest: XCTestCase {
         }
         
         wait(for: [expectation], timeout: 10)
+    }
+    
+    func testFetchTicketsWithInvalidCredentials() {
+        let expectation = XCTestExpectation(description: "Fetch Tickets from server")
+        zendeskAPI = ZendeskAPI(email: "test", password: "test")
+        zendeskAPI?.performTicketsSearch(viewID: TicketsTestConstraints.viewID) { (data, response, errorResponse) in
+            
+            do {
+                let json : [String : String] = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String : String]
+                let errorDescription = json["error"]
+                XCTAssert(errorDescription == "Couldn\'t authenticate you")
+            } catch let jsonError {
+                XCTFail("Could not parse error json \(jsonError)")
+            }
+            
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 10)
+
+        
     }
     
 }
