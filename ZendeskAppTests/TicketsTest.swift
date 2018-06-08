@@ -23,7 +23,7 @@ class TicketsTest: XCTestCase {
                           Ticket(id: 2, subject: "Subject", description: "Desc", status: "open")]
         
         let tickets = Tickets(ticketList: ticketList)
-        let state = SearchTickets(tickets: tickets)
+        let state = SearchTickets(tickets: tickets, ticketsError : nil)
         let reducer = SearchTicketsReducer(initialState: state)
         let action = TicketsFetchedAction(tickets: tickets)
         _ = reducer.reduce(state: state, action:action)
@@ -33,7 +33,7 @@ class TicketsTest: XCTestCase {
     func testTicketsUnavailableAsyncAction() {
         
         let tickets = Tickets()
-        let state = SearchTickets(tickets: tickets)
+        let state = SearchTickets(tickets: tickets, ticketsError : nil)
         let reducer = SearchTicketsReducer(initialState: state)
         let action = TicketsFetchedAction(tickets: tickets)
         _ = reducer.reduce(state: state, action:action )
