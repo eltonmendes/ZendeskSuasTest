@@ -165,16 +165,15 @@
 		2BEA64B520CA0FE900D57DF6 /* ZendeskApp */ = {
 			isa = PBXGroup;
 			children = (
+				2BEA64B620CA0FE900D57DF6 /* AppDelegate.swift */,
+				2BEA64C220CA0FE900D57DF6 /* Info.plist */,
+				2BEA64E420CA10F400D57DF6 /* Action */,
 				2BC160B320CA30DE00DA35EE /* API */,
-				2BEA64F520CA234200D57DF6 /* Resources */,
+				2BEA64EB20CA12A600D57DF6 /* Model */,
 				2BEA64F220CA149000D57DF6 /* Reducer */,
+				2BEA64F520CA234200D57DF6 /* Resources */,
 				2BEA64EF20CA13C000D57DF6 /* State */,
 				2BEA64EE20CA137D00D57DF6 /* View */,
-				2BEA64EB20CA12A600D57DF6 /* Model */,
-				2BEA64E420CA10F400D57DF6 /* Action */,
-				2BEA64B620CA0FE900D57DF6 /* AppDelegate.swift */,
-				2BEA64BF20CA0FE900D57DF6 /* LaunchScreen.storyboard */,
-				2BEA64C220CA0FE900D57DF6 /* Info.plist */,
 			);
 			path = ZendeskApp;
 			sourceTree = "<group>";
@@ -241,6 +240,7 @@
 		2BEA64F520CA234200D57DF6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2BEA64BF20CA0FE900D57DF6 /* LaunchScreen.storyboard */,
 				2BEA64BD20CA0FE900D57DF6 /* Assets.xcassets */,
 			);
 			path = Resources;
